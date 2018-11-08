@@ -1,7 +1,20 @@
 'use strict';
 
 const constants = require('../yoti_common/constants');
-const { Attribute } = require('../data_type/attribute');
+
+const Attribute = function main(attrObj) {
+  this.value = attrObj.value;
+  this.name = attrObj.name;
+  this.sources = attrObj.sources;
+  this.verifiers = attrObj.verifiers;
+};
+
+Attribute.prototype = {
+  getValue() { return this.value; },
+  getName() { return this.name; },
+  getSources() { return this.sources; },
+  getVerifiers() { return this.verifiers; },
+};
 
 module.exports.Profile = class Profile {
   constructor(profileData) {
